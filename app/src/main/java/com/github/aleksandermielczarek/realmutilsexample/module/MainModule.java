@@ -1,6 +1,7 @@
 package com.github.aleksandermielczarek.realmutilsexample.module;
 
 import com.github.aleksandermielczarek.napkin.scope.AppScope;
+import com.github.aleksandermielczarek.realmutils.migration.CompositeMigration;
 import com.github.aleksandermielczarek.realmutils.module.RealmUtilsModule;
 
 import dagger.Module;
@@ -16,8 +17,13 @@ import io.realm.RealmConfiguration;
 public class MainModule {
 
     @Provides
-    RealmConfiguration provideRealmConfiguration() {
-        return new RealmConfiguration.Builder()
+    CompositeMigration provideCompositeMigration() {
+        return new CompositeMigration();
+    }
+
+    @Provides
+    RealmConfiguration provideRealmConfiguration(CompositeMigration compositeMigration) {
+        return compositeMigration.realmConfigurationBuilder()
                 .modules(Realm.getDefaultModule(), new RealmUtilsModule())
                 .build();
     }
