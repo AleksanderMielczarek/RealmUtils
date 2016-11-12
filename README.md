@@ -23,7 +23,7 @@ Add the dependency
 
 ```groovy
 dependencies {
-    compile 'com.github.AleksanderMielczarek.RealmUtils:realm-utils:0.1.0'
+    compile 'com.github.AleksanderMielczarek:RealmUtils:0.1.0'
 }
 ```
 
