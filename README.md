@@ -53,6 +53,14 @@ RealmConfiguration configuration = compositeMigration.realmConfigurationBuilder(
 Realm.setDefaultConfiguration(configuration);
 ```
 
+## Usage in existing projects
+
+For every new version of library migration is specified. Just make sure that new migrations are added.
+
+```java
+Migration010
+```
+
 ## License
 
     Copyright 2016 Aleksander Mielczarek
