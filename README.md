@@ -19,6 +19,40 @@ allprojects {
 
 ## Core
 
+Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.AleksanderMielczarek.RealmUtils:realm-utils:0.1.0'
+}
+```
+
+- types
+
+```java
+RealmString
+```
+
+```java
+Realm.init(this);
+RealmConfiguration configuration = new RealmConfiguration.Builder()
+        .modules(Realm.getDefaultModule(), new RealmUtilsModule())
+        .build();
+Realm.setDefaultConfiguration(configuration);
+```
+
+- migrations
+
+```java
+Realm.init(this);
+CompositeMigration compositeMigration = new CompositeMigration();
+compositeMigration.addMigration(new Migration1());
+RealmConfiguration configuration = compositeMigration.realmConfigurationBuilder()
+        .modules(Realm.getDefaultModule(), new RealmUtilsModule())
+        .build();
+Realm.setDefaultConfiguration(configuration);
+```
+
 ## License
 
     Copyright 2016 Aleksander Mielczarek
