@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'realm-android'
 
 android {
@@ -43,10 +42,6 @@ dependencies {
     compile "com.google.dagger:dagger:$daggerVersion"
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
     compile "com.github.AleksanderMielczarek.Napkin:module:$napkinVersion"
-
-    //rxjava
-    compile "io.reactivex:rxandroid:$rxandroidVersion"
-    compile "io.reactivex:rxjava:$rxjavaVersion"
 
     //realm
     compile project(':realm-utils')
